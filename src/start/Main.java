@@ -1,9 +1,9 @@
-package START;
+package start;
 
-import MODEL.LabyPainter;
-import GAME.GameEngineGraphical;
-import MODEL.LabyController;
-import MODEL.LabyGame;
+import model.LabyPainter;
+import engine.GameEngineGraphical;
+import model.LabyController;
+import model.LabyGame;
 
 /**
  * lancement du moteur avec le jeu

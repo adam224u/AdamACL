@@ -1,4 +1,4 @@
-package GAME;
+package engine;
 
 import javax.swing.JFrame;
 

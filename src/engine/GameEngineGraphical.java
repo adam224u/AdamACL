@@ -1,4 +1,4 @@
-package GAME;
+package engine;
 
 public class GameEngineGraphical {
 

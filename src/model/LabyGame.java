@@ -1,14 +1,13 @@
-package MODEL;
+package model;
 
-import GAME.Entity; 
+import engine.Entity; 
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import GAME.Cmd;
-import GAME.Entity;
-import GAME.Game;
+import engine.Cmd;
+import engine.Game;
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas

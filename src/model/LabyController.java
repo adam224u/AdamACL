@@ -1,9 +1,9 @@
-package MODEL;
+package model;
 
 import java.awt.event.KeyEvent;
 
-import GAME.Cmd;
-import GAME.GameController; 
+import engine.Cmd;
+import engine.GameController; 
 
 public class LabyController implements GameController{
 

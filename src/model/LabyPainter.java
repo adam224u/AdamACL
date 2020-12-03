@@ -1,11 +1,11 @@
-package MODEL;
+package model;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import GAME.GamePainter;
-import GAME.Entity; 
+import engine.GamePainter;
+import engine.Entity; 
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas
