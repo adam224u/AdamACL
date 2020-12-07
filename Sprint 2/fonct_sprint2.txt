@@ -1,0 +1,5 @@
+-Dans un labyrinthe (Construit à partir d’un fichier)
+-Doit arriver sur une case pour finir le jeu (Trésor)
+-Implémentation d'une barre de vie
+-Ajouts des monstres
+-Ajouts des pièges
