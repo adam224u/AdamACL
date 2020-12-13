@@ -1,4 +1,4 @@
-package engine;
+package game;
 
 import javax.swing.JFrame;
 
@@ -38,6 +38,10 @@ public class GraphicalInterface  {
 	 */
 	public void paint() {
 		this.panel.drawGame();	
+	}
+
+	public void fin() {
+		this.panel.fin();
 	}
 	
 }

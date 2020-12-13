@@ -1,7 +1,7 @@
 package start;
 
 import model.LabyPainter;
-import engine.GameEngineGraphical;
+import game.GameEngineGraphical;
 import model.LabyController;
 import model.LabyGame;
 
@@ -13,7 +13,7 @@ public class Main {
 	public static void main(String[] args) throws InterruptedException {
 
 		// creation du jeu particulier et de son afficheur
-		LabyGame game = new LabyGame("helpFilePacman.txt");
+		LabyGame game = new LabyGame("Labyrinthe1.txt");
 		LabyPainter painter = new LabyPainter();
 		LabyController controller = new LabyController();
 

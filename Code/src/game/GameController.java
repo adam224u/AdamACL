@@ -1,4 +1,4 @@
-package engine;
+package game;
 import java.awt.event.KeyListener;
 
 public interface GameController extends KeyListener {

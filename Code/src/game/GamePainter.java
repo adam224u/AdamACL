@@ -1,4 +1,4 @@
-package engine;
+package game;
 
 import java.awt.image.BufferedImage;
 
@@ -11,6 +11,7 @@ public interface GamePainter {
 	 *            image sur laquelle dessiner
 	 */
 	public abstract void draw(BufferedImage image);
+	
 
 	public abstract int getWidth();
 

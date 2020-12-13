@@ -1,4 +1,4 @@
-package engine;
+package game;
 
 public interface Game {
 

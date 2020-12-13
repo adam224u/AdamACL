@@ -2,8 +2,8 @@ package model;
 
 import java.awt.event.KeyEvent;
 
-import engine.Cmd;
-import engine.GameController; 
+import game.Cmd;
+import game.GameController; 
 
 public class LabyController implements GameController{
 
@@ -46,46 +46,35 @@ public class LabyController implements GameController{
 	 * met a jour les commandes en fonctions des touches appuyees
 	 */
 	public void keyPressed(KeyEvent e) {
-		switch (e.getKeyCode()) {
+		
+
+		switch (e.getKeyChar()) {
 		// si on appuie sur 'q',commande joueur est gauche
-		
-		// z 90 s 83 q 81 d 68 up 38 left 37 down 40 right 39
-		case 81:
+		case 'q':
 			this.commandeEnCours = Cmd.LEFT;
 			break;
-		
-		case 37:
+		case 'Q':
 			this.commandeEnCours = Cmd.LEFT;
 			break;
-			
-		case 90:
+		case 'z':
 			this.commandeEnCours = Cmd.UP;
 			break;
-		
-		case KeyEvent.VK_UP:
+		case 'Z':
 			this.commandeEnCours = Cmd.UP;
 			break;
-			
-		case 83 : 
+		case 's' : 
 			this.commandeEnCours = Cmd.DOWN;
 		break;
-		
-		
-		case KeyEvent.VK_DOWN : 
+		case 'S' : 
 			this.commandeEnCours = Cmd.DOWN;
 		break;
-		
-		case 68 : 
+		case 'D' : 
 			this.commandeEnCours = Cmd.RIGHT;
 		break;
-		
-		case KeyEvent.VK_RIGHT : 
+		case 'd' : 
 			this.commandeEnCours = Cmd.RIGHT;
 		break;
 		}
-
-		
-		
 
 	}
 

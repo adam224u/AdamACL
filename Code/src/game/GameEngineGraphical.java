@@ -1,4 +1,6 @@
-package engine;
+package game;
+
+import model.LabyGame;
 
 public class GameEngineGraphical {
 
@@ -57,7 +59,14 @@ public class GameEngineGraphical {
 			// affiche le game
 			this.gui.paint();
 			// met en attente
-			Thread.sleep(100);
+			Thread.sleep(75);
+		}
+		this.gui.fin();
+		if (LabyGame.fini==1) {
+		System.out.print("GAGNE !!!!");
+		}
+		else {
+			System.out.print("PERDU :(");
 		}
 	}
 	

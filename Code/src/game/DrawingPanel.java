@@ -1,7 +1,8 @@
-package engine;
+package game;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
@@ -84,6 +85,16 @@ public class DrawingPanel extends JPanel{
 		g.drawImage(this.currentImage, 0, 0, getWidth(), getHeight(), 0, 0,
 				getWidth(), getHeight(), null);
 	}
+
+	public void fin() {
+		this.currentImage = new BufferedImage(width, height,
+				BufferedImage.TYPE_INT_RGB);
+		this.currentImage.getGraphics().fillRect(0, 0, this.width, this.height);
+		this.repaint();
+		
+	}
+
+	
 
 }
 
