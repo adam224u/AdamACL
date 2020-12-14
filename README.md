@@ -6,10 +6,12 @@ Projet ISN 2A HENNECHART Justinien, BOURGIER Julien, ADAM Arthur, LAFFITTE Gabri
 
 Demarrage
 
-Open a notepad.exe.
-Write : java -jar Adamacl. jar.
-Save it with the extension . bat.
-Copy it to the directory which has the . jar file.
+Windows Users:
+download Adamacl.jar;
+Open a notepad.exe.;
+Write : java -jar Adamacl. jar.;
+Save it with the extension . bat.;
+Copy it to the directory which has the . jar file.;
 Double click it to run  Adamacl.jar file.
 
 
