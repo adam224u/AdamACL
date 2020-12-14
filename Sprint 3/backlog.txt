@@ -1,0 +1,5 @@
+-Refactoring
+-Téléportation
+-Héros peut attaquer un monstre qui se situe sur la case adjacente
+-Les monstres se déplacent de manière intelligente de façon à se rapprocher du héros
+-Affichage sur l'interface graphique (Points de vie, Gameover ...)
