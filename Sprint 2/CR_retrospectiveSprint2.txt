@@ -1,0 +1,12 @@
+Compte-rendu retrospective du sprint 2
+
+Pour le sprint 2, la priorité a été de modifier nos méthodes de travail pour obtenir des résultats plus concluant qu'aux sprints .
+
+Il s'agissait avant tout d'effectuer une meilleure répartition des differentes taches. Pour ce faire on a planifié plusieurs réunions dans la semaine pour voir l'évolution de chacun.
+
+Le but premier de ce sprint était de créer une meilleure base de travail en retravaillant le diagramme UML et le diagramme séquentiel.
+
+On a pu être bien plus efficace avec ces méthodes pour ce sprint 2 qu'au sprint 1.
+
+Pour le prochain sprint, nous voulons améliorer nos descriptions de commit.
+
