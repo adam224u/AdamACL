@@ -72,7 +72,7 @@ public class LabyGame implements Game {
 	@Override
 	public void evolve(Cmd commande) {
 		heros.Movement(commande);
-		//il faut ensuite faire évoluer la liste des entités 
+		//il faut ensuite faire evoluer la liste des entites 
 		if (commande !=Cmd.IDLE) { 
 		if (this.entite != null) {
 		for(Entity monstre: this.entite) {
