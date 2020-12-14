@@ -6,9 +6,10 @@ Projet ISN 2A HENNECHART Justinien, BOURGIER Julien, ADAM Arthur, LAFFITTE Gabri
 
 Demarrage
 
-excuter le .jar en ligne de commande : 
-
-jar -jar Adamacl.jar
-
+Open a notepad.exe.
+Write : java -jar Adamacl. jar.
+Save it with the extension . bat.
+Copy it to the directory which has the . jar file.
+Double click it to run  Adamacl.jar file.
 
 
