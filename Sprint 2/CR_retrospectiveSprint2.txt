@@ -1,6 +1,6 @@
 Compte-rendu retrospective du sprint 2
 
-Pour le sprint 2, la priorité a été de modifier nos méthodes de travail pour obtenir des résultats plus concluant qu'aux sprints .
+Pour le sprint 2, la priorité a été de modifier nos méthodes de travail pour obtenir des résultats plus concluant qu'au sprint précedent .
 
 Il s'agissait avant tout d'effectuer une meilleure répartition des differentes taches. Pour ce faire on a planifié plusieurs réunions dans la semaine pour voir l'évolution de chacun.
 
