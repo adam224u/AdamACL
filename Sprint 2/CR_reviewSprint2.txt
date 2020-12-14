@@ -1,0 +1,8 @@
+Compte-rendu review du sprint 2
+
+Les problèmes majeurs recontrés pour ce sprint 2 étaient surtout liés au sprint 1. On a dû revoir intégralement notre manière de travailler.
+
+Dans les faits, nous avons revu l'affichage du labyrinthe pour obtenir un résultat plus ergonomique et plus cohérent avec le projet.
+
+On a pu mettre en place le système de point de vie. Il nous manque encore un meilleur affichage pour ces informations.
+
