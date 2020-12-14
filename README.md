@@ -6,6 +6,7 @@ Projet ISN 2A HENNECHART Justinien, BOURGIER Julien, ADAM Arthur, LAFFITTE Gabri
 
 Demarrage
 
+Windows Users:
 download Adamacl.jar;
 Open a notepad.exe.;
 Write : java -jar Adamacl. jar.;
