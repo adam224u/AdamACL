@@ -62,7 +62,8 @@ public class GameEngineGraphical {
 			Thread.sleep(75);
 		}
 		this.gui.fin();
-		if (LabyGame.fini==1) {
+		int fin = this.game.getfini();
+		if (fin==1) {
 		System.out.print("GAGNE !!!!");
 		}
 		else {

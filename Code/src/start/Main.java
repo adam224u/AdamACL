@@ -14,7 +14,7 @@ public class Main {
 
 		// creation du jeu particulier et de son afficheur
 		LabyGame game = new LabyGame("Labyrinthe1.txt");
-		LabyPainter painter = new LabyPainter();
+		LabyPainter painter = new LabyPainter(game);
 		LabyController controller = new LabyController();
 
 		// classe qui lance le moteur de jeu generique

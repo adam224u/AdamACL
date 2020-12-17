@@ -22,10 +22,10 @@ import game.Heros;
  */
 public class LabyGame implements Game {
 	
-	public static Heros heros;
-	List<Entity> entite;
-	public static String [][] laby;
-	public static int fini = 0;
+	private Heros heros;
+	private List<Entity> entite;
+	private Tile [][] laby;
+	private int fini = 0;
 
 	/**
 	 * constructeur avec fichier source pour le help
@@ -33,35 +33,15 @@ public class LabyGame implements Game {
 	 */
 	public LabyGame(String source) {
 		this.entite = new ArrayList<Entity>();
-		LabyGame.laby= new String[21][21];
-		BufferedReader helpReader = null;
-		try {
-			helpReader = new BufferedReader(new FileReader("Labyrinthe1.txt"));
-			for (int y=0; y<=20;y++) {
-				String ligne = helpReader.readLine();
-				String[] mots = ligne.split ("") ;
-				for (int x=0; x<=20;x++) {
-					String mot =mots[x];
-					laby[y][x]=mot;
-					if (mot.equals("H")) {
-						LabyGame.heros = new Heros(x*40,y*40,4);
-						System.out.print("vie : ");
-						System.out.println(LabyGame.heros.getvie());
-					}
-					else if (mot.equals("M")) {
-						 this.entite.add(new Entity(x*40,y*40,0))  ;
-					}
-				}
+		this.laby= new Tile[21][21];
+		for (int i1=0; i1<=20;i1++) {
+			for (int i2=0; i2<=20;i2++) {
+				laby[i1][i2]= new Tile();
 			}
-			helpReader.close();	
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+		
+		constructeurLaby();
+		
 	}
 
 	/**
@@ -72,7 +52,7 @@ public class LabyGame implements Game {
 	@Override
 	public void evolve(Cmd commande) {
 		heros.Movement(commande);
-		//il faut ensuite faire evoluer la liste des entites 
+		//il faut ensuite faire évoluer la liste des entités 
 		if (commande !=Cmd.IDLE) { 
 		if (this.entite != null) {
 		for(Entity monstre: this.entite) {
@@ -98,6 +78,48 @@ public class LabyGame implements Game {
 			}
 		}
 	}
+	public void constructeurLaby() {
+		BufferedReader helpReader = null;
+		try {
+			helpReader = new BufferedReader(new FileReader("Labyrinthe1.txt"));
+			for (int y=0; y<=20;y++) {
+				String ligne = helpReader.readLine();
+				String[] mots = ligne.split ("") ;
+				for (int x=0; x<=20;x++) {
+					String mot =mots[x];
+					laby[y][x].changeType(mot);
+					if (mot.equals("H")) {
+						this.heros = new Heros(x*40,y*40,4,laby,fini);
+						System.out.print("vie : ");
+						System.out.println(this.heros.getvie());
+					}
+					else if (mot.equals("M")) {
+						this.entite.add(new Entity(x*40,y*40,0,laby,fini))  ;
+					}
+				}
+			}
+			helpReader.close();	
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+	
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public int getfini() {
+		return this.fini;
+	}
+	
+	public Heros getHeros() {
+		return this.heros;
+	}
+	
+	public Tile [][] getlaby() {
+		return laby;
+	}
 		
 		
 		
@@ -109,7 +131,19 @@ public class LabyGame implements Game {
 	 */
 	@Override
 	public boolean isFinished() {
-		return ((LabyGame.fini>=1) || (LabyGame.heros.getvie()==0));
+		int t =0;
+		for(Entity monstre: this.entite) {
+			if (monstre.getfini()==2) {
+				t=1;
+			}
+		}
+		if ((t==1) || (heros.getfini()==2) || (this.heros.getvie()==0)) {
+			this.fini = 2;
+		}
+		else if (heros.getfini()==1) {
+			this.fini = 1;
+		}
+		return (this.fini>=1);
 	}
 
 }

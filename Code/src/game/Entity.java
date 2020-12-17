@@ -1,17 +1,23 @@
 package game;
 
-import model.LabyGame;
+
+import model.Tile;
 
 public class Entity {
 	
-	public int x;
-	public int y;
-	public int vie;
+	private int x;
+	private int y;
+	private int vie;
+	private Tile[][] laby;
+	private int fini;
 	
-	public Entity(int x, int y, int vie) {
+	
+	public Entity(int x, int y, int vie, Tile[][] laby,int fini) {
 		this.x=x;
 		this.y=y;
 		this.vie=vie;
+		this.laby=laby;
+		this.fini = fini;
 	}
 	
 	public int getx() {
@@ -22,10 +28,14 @@ public class Entity {
 		return(this.y);
 	}
 	
-	public void Movement(Cmd commande ) {
+	public int getfini() {
+		return this.fini;
+	}
+	
+	public void Movement(Cmd commande) {
 		int y = this.y;
 		int x = this.x;
-		String genre = LabyGame.laby[y/40][x/40];
+		String genre = laby[y/40][x/40].getType();
 		switch (commande) {
 		case IDLE :
 			break;
@@ -33,103 +43,53 @@ public class Entity {
 			int x_nl=this.x - 40;
 			int yl = this.y/40;
 			int xl = x_nl/40;
-			if (LabyGame.laby[yl][xl].equals("0")) {
-				LabyGame.laby[this.y/40][this.x/40]="0";
-				this.x = x_nl;
-				LabyGame.laby[yl][xl]=genre;
-			}
-			else if (LabyGame.laby[yl][xl].equals("2") & (genre.equals("H"))) {
-				LabyGame.fini=1;
-			}
-			else if ((LabyGame.laby[yl][xl].equals("M")) & (genre.equals("H"))) {
-				LabyGame.fini=2;
-			}
-			else if ((LabyGame.laby[yl][xl].equals("H")) & (genre.equals("M"))) {   
-				LabyGame.fini=2;
-			}
-			else if ((LabyGame.laby[yl][xl].equals("P")) & (genre.equals("H"))) {   
-				LabyGame.laby[this.y/40][this.x/40]="0";
-				this.x = x_nl;
-				LabyGame.laby[yl][xl]=genre;
-				retirervie(2);
-				
-			}
+			move(x,y,xl,yl,genre);
 			break;
 		case RIGHT :
 			int x_nr=this.x + 40;
 			int yr = this.y/40;
 			int xr = x_nr/40;
-			if (LabyGame.laby[yr][xr].equals("0")) {
-				LabyGame.laby[this.y/40][this.x/40]="0";
-				this.x = x_nr;
-				LabyGame.laby[yr][xr]=genre;
-			}
-			else if (LabyGame.laby[yr][xr].equals("2") & (genre.equals("H"))) {
-				LabyGame.fini=1;
-			}
-			else if ((LabyGame.laby[yr][xr].equals("M")) & (genre.equals("H"))) {
-				LabyGame.fini=2;
-			}
-			else if ((LabyGame.laby[yr][xr].equals("H")) & (genre.equals("M"))) {
-				LabyGame.fini=2;
-			}
-			else if ((LabyGame.laby[yr][xr].equals("P")) & (genre.equals("H"))) {   
-				LabyGame.laby[this.y/40][this.x/40]="0";
-				this.x = x_nr;
-				LabyGame.laby[yr][xr]=genre;
-				retirervie(2);
-			}
+			move(x,y,xr,yr,genre);
 			break;
 		case UP :
 			int y_nu=this.y - 40;
 			int yu = y_nu/40;
 			int xu = this.x/40;
-			if (LabyGame.laby[yu][xu].equals("0")) {
-				LabyGame.laby[this.y/40][this.x/40]="0";
-				this.y = y_nu;
-				LabyGame.laby[yu][xu]=genre;
-		}
-			else if (LabyGame.laby[yu][xu].equals("2") & (genre.equals("H"))) {
-				LabyGame.fini=1;
-			}
-			else if ((LabyGame.laby[yu][xu].equals("M")) & (genre.equals("H"))) {
-				LabyGame.fini=2;
-			}
-			else if ((LabyGame.laby[yu][xu].equals("H")) & (genre.equals("M"))) {
-				LabyGame.fini=2;
-			}
-			else if ((LabyGame.laby[yu][xu].equals("P")) & (genre.equals("H"))) {   
-				LabyGame.laby[this.y/40][this.x/40]="0";
-				this.y = y_nu;
-				LabyGame.laby[yu][xu]=genre;
-				retirervie(2);
-			}
+			move(x,y,xu,yu,genre);
 			break;
 		case DOWN :
 			int y_nd=this.y + 40;
 			int yd = y_nd/40;
 			int xd = this.x/40;
-			if (LabyGame.laby[yd][xd].equals("0")) {
-				LabyGame.laby[this.y/40][this.x/40]="0";
-				this.y = y_nd;
-				LabyGame.laby[yd][xd]=genre;
-		}
-			else if (LabyGame.laby[yd][xd].equals("2") & (genre.equals("H"))) {
-				LabyGame.fini=1;
-			}
-			else if ((LabyGame.laby[yd][xd].equals("M")) & (genre.equals("H"))) {
-				LabyGame.fini=2;
-			}
-			else if ((LabyGame.laby[yd][xd].equals("H")) & (genre.equals("M"))) {
-				LabyGame.fini=2;
-			}
-			else if ((LabyGame.laby[yd][xd].equals("P")) & (genre.equals("H"))) {   
-				LabyGame.laby[this.y/40][this.x/40]="0";
-				this.y = y_nd;
-				LabyGame.laby[yd][xd]=genre;
-				retirervie(2);
-			}
+			move(x,y,xd,yd,genre);
 			break;
+		}
+		
+	}
+	
+	public void move(int x,int y, int xnew, int ynew, String genre ) {
+		if (laby[ynew][xnew].equalsType("0")) {
+			laby[this.y/40][this.x/40].changeType("0");
+			this.x = xnew*40;
+			this.y = ynew*40;
+			laby[ynew][xnew].changeType(genre);
+		}
+		else if (laby[ynew][xnew].equalsType("2") & (genre.equals("H"))) {
+			fini=1;
+		}
+		else if ((laby[ynew][xnew].equalsType("M")) & (genre.equals("H"))) {
+			fini=2;
+		}
+		else if ((laby[ynew][xnew].equalsType("H")) & (genre.equals("M"))) {   
+			fini=2;
+		}
+		else if ((laby[ynew][xnew].equalsType("P")) & (genre.equals("H"))) {   
+			laby[this.y/40][this.x/40].changeType("0");
+			this.x = xnew*40;
+			this.y = ynew*40;
+			laby[ynew][xnew].changeType(genre);
+			retirervie(2);
+			
 		}
 		
 	}

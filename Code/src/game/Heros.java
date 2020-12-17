@@ -1,14 +1,19 @@
 package game;
 
+import model.Tile;
+
 public class Heros extends Entity{
 	
-	public Heros(int x, int y,int vie) {
-		super(x, y, vie);
+	public Heros(int x, int y,int vie,Tile[][] laby, int fini) {
+		super(x, y, vie,laby,fini);
 	}
 
-	public int x;
-	public int y;
-	public int vie;
+	private int x;
+	private int y;
+	private int vie;
+	private Tile[][] laby;
+	private int fini;
+	
 	
 	public int getx() {
 		return super.getx();

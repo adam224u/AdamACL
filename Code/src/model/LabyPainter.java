@@ -5,9 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import game.GamePainter;
 
-import game.Heros;
-import game.Entity; 
-import model.LabyGame;
+
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas
@@ -17,11 +15,10 @@ import model.LabyGame;
  */
 public class LabyPainter implements GamePainter {
 
-	/**
-	 * la taille des cases
-	 */
+	
 	protected static final int WIDTH = 840;
 	protected static final int HEIGHT = 840;
+	private LabyGame game;
 
 	/**
 	 * appelle constructeur parent
@@ -29,8 +26,10 @@ public class LabyPainter implements GamePainter {
 	 * @param game
 	 *            le jeutest a afficher
 	 */
-	public LabyPainter() {
+	public LabyPainter(LabyGame game) {
+		this.game = game ;
 	}
+
 
 	/**
 	 * methode  redefinie de Afficheur retourne une image du jeu
@@ -39,7 +38,7 @@ public class LabyPainter implements GamePainter {
 	public void draw(BufferedImage im) {
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
 		crayon.setColor(Color.blue);
-		crayon.fillOval(LabyGame.heros.getx(),LabyGame.heros.gety(),40,40);
+		crayon.fillOval(game.getHeros().getx(),game.getHeros().gety(),40,40);
 		crayon.setColor(Color.black);
 		for (int x=2;x<=19;x++) {
 			crayon.drawLine(x*40, 0, x*40, 840);
@@ -47,19 +46,19 @@ public class LabyPainter implements GamePainter {
 		}
 		for (int y=0; y<=20;y++) {
 			for (int x=0; x<=20;x++) {
-				if (LabyGame.laby[y][x].equals("1")) {
+				if (game.getlaby()[y][x].equalsType("1")) {
 					crayon.setColor(Color.black);
 					crayon.fillRect(x*40,y*40,40 , 40);
 				}
-				else if (LabyGame.laby[y][x].equals("2")) {
+				else if (game.getlaby()[y][x].equalsType("2")) {
 					crayon.setColor(Color.yellow);
 					crayon.fillRect(x*40,y*40,40 , 40);
 				}
-				else if (LabyGame.laby[y][x].equals("M")) {
+				else if (game.getlaby()[y][x].equalsType("M")) {
 					crayon.setColor(Color.green);
 					crayon.fillOval(x*40,y*40,40 , 40);
 				}
-				else if (LabyGame.laby[y][x].equals("P")) {
+				else if (game.getlaby()[y][x].equalsType("P")) {
 					crayon.setColor(Color.gray);
 					crayon.drawLine(x*40,y*40,(x+1)*40 , (y+1)*40);
 					crayon.drawLine(x*40,(y+1)*40,(x+1)*40 , y*40);
