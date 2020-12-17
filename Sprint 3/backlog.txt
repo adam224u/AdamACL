@@ -1,0 +1,5 @@
+-Refactoring
+-Le héros peut se téléportater entre 2 cases du labyrinthe.
+-Héros peut attaquer un monstre qui se situe sur la case adjacente, il tire vers la direction de déplacement.
+-Les monstres se déplacent de manière intelligente de façon à se rapprocher du héros
+-Affichage sur l'interface graphique (Points de vie, Gameover, victoire)
