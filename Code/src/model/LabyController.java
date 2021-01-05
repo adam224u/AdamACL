@@ -74,6 +74,10 @@ public class LabyController implements GameController{
 		case 'd' : 
 			this.commandeEnCours = Cmd.RIGHT;
 		break;
+		case 'e' : 
+			this.commandeEnCours = Cmd.SHOOT;
+		case 'E' : 
+			this.commandeEnCours = Cmd.SHOOT;
 		}
 
 	}
