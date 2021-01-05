@@ -6,12 +6,9 @@ Projet ISN 2A HENNECHART Justinien, BOURGIER Julien, ADAM Arthur, LAFFITTE Gabri
 
 Demarrage
 
-Windows Users:
-download Adamacl.jar;
-Open a notepad.exe.;
-Write : java -jar Adamacl. jar.;
-Save it with the extension . bat.;
-Copy it to the directory which has the . jar file.;
-Double click it to run  Adamacl.jar file.
-
+Pour lancer le jeu
+1) dowload le fichier xml
+2) ant dans cmd pour tester le build.
+3) ant compile compile le jeu 
+4) ant run execute le jeu
 
