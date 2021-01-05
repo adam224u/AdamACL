@@ -89,7 +89,9 @@ public class LabyPainter implements GamePainter {
 				}
 				
 			}
-		}		
+		}
+		crayon.setColor(Color.black);
+		crayon.drawString(String.valueOf(game.getHeros().getvie()), x1+17,y1+20);
 	}
 			
 	
